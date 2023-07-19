@@ -1,12 +1,15 @@
 from django.db import models
-
-# Create your models here.
+from client.models import Client
+from Add_to_cart.models import Add_to_cart
+from delivery.models import Delivery
 
 class Odermanage(models.Model):
-    order_id = models.IntegerField()
-    customer_id = models.IntegerField()
-    vendor_id = models.IntegerField()
-    order_date = models.DateField()
-    order_status = models.CharField(max_length=50)
-    order_total = models.DecimalField(max_digits=10, decimal_places=2)
-    order_items = models.TextField()
+    name = models.CharField(max_length=32, default='Default Name')  # Add a default value
+    price = models.DecimalField(max_digits=8, decimal_places=2, default=0.0)
+    total = models.DecimalField(max_digits=8, decimal_places=3, default=0.0)
+    # image = models.ImageField()
+    # description = models.TextField()
+
+    client = models.ForeignKey(Client, null=True, on_delete=models.CASCADE)
+    Add_to_cart = models.ForeignKey(Add_to_cart, null=True, on_delete=models.CASCADE)
+    delivery = models.OneToOneField(Delivery, null=True, on_delete=models.CASCADE)
