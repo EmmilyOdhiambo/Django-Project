@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ product.name }}</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 20px;
+    }
+    h2 {
+      margin-top: 10px;
+    }
+    p {
+      margin: 5px 0;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <img src="{{ product.image.url }}" alt="{{ product.name }}" />
+
+  <h2>{{ product.name }}</h2>
+  <p>Price: {{ product.price }}</p>
+  <p>Quantity: {{ product.quantity }}</p>
+  <p>Created At: {{ product.created_at }}</p>
+  <p>Updated At: {{ product.updated_at }}</p>
+ 
+  <button>Add to Cart</button>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .kiosk {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    .kiosk th, .kiosk td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    .headings {
+      background-color: #d6caca;
+    }
+    .headings td {
+      font-weight: bold;
+    }
+    .kiosk tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    .kiosk a {
+      text-decoration: none;
+      color: #1eff00;
+    }
+    .kiosk a:hover {
+      text-decoration: underline;
+    }
+    .product-container img{
+height: 300px;
+width: 300px;
+    }
+  </style>
+</head>
+ <body>
+  <div class="allproducts">
+    {% for product in products %}
+        <div class="product-container">
+            <img src="{{product.image.url}}" class="img"/>
+            <h1 class="product-name">{{ product.name }}</h1>
+            
+             <a href="{% url 'product_detail_view' id=product.id %}">View Details</a>
+             <a href="{% url 'product_update_view' id=product.id %}">Edit Product</a>
+        </div>
+    {% endfor %}
+</div>
+<style>
+    .allproducts{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border: blue;
+    }
+</style>
+</body>
+</html>
